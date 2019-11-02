@@ -27,7 +27,9 @@ img{
 img{
 display: inline;
 padding: 5px;
+border-color: orange;
 }
 .imageContainer{
   width:850px;
+  margin-left:300px
 }

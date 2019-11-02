@@ -20,38 +20,34 @@ class App extends Component {
 
   checkImage = (event) => {
 
-    // debugger;
-    window.onclick = shuffle(rdata)
-    function shuffle(rdata) {
-      for (let i = rdata.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [rdata[i], rdata[j]] = [rdata[j], rdata[i]];
-      }
-      return rdata;
-    }
-    shuffle(rdata);
     //event.target will get you what you just clicked on, which is the image
 
     var imageId = event.target.getAttribute('data-id');
 
-    // debugger;
+    // // debugger;
 
-    // eslint-disable-next-line eqeqeq
+    // // eslint-disable-next-line eqeqeq
     if (this.state.data[imageId - 1].clicked == false) {
 
       //need to make clicked to true
 
 
-      let newData = this.state.data.map(item => {
+      let data = this.state.data.map(item => {
+
+        console.log(item)
         // eslint-disable-next-line eqeqeq
         if (item.id == imageId) item.clicked = true;
         return item;
       })
 
+      data.sort(() => Math.random() - 0.5);
+
       this.setState({
-        data: newData,
+        data: data,
         score: this.state.score + 1
+
       })
+
 
     } else {
       this.setState({
@@ -71,7 +67,7 @@ class App extends Component {
         </nav >
         <h2>Score: {this.state.score} | Top Score: {this.state.topscore}</h2>
         <div class="results"></div>
-        <div class="imageContainer">
+        <div className="imageContainer">
           {this.state.data.map(item => (
             // eslint-disable-next-line jsx-a11y/alt-text
             <img
