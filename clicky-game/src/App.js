@@ -27,7 +27,7 @@ class App extends Component {
     // // debugger;
 
     // // eslint-disable-next-line eqeqeq
-    if (this.state.data[imageId - 1].clicked == false) {
+    if (this.state.data[imageId - 1].clicked === false) {
 
       //need to make clicked to true
 
